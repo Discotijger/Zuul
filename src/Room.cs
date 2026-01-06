@@ -23,6 +23,7 @@ class Room
 	// Return the description of the room.
 	public string GetShortDescription()
 	{
+	
 		return description;
 	}
 

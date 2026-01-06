@@ -18,19 +18,34 @@ class Game
 	{
 		// Create the rooms
 		Room outside = new Room("outside the main entrance of the university");
+		Room balcony = new Room("on the balcony overlooking the yard");
+
 		Room theatre = new Room("in a lecture theatre");
+
 		Room pub = new Room("in the campus pub");
+		Room pub2 = new Room("on the second floor of the pub");
+
 		Room lab = new Room("in a computing lab");
+
 		Room office = new Room("in the computing admin office");
+		
+
 
 		// Initialise room exits
 		outside.AddExit("east", theatre);
 		outside.AddExit("south", lab);
 		outside.AddExit("west", pub);
+		outside.AddExit("up", balcony);
+
+		balcony.AddExit("down", outside);
+		balcony.AddExit("west", pub2);
 
 		theatre.AddExit("west", outside);
 
 		pub.AddExit("east", outside);
+		pub.AddExit("up", pub2);
+		pub2.AddExit("east", balcony);
+		pub2.AddExit("down", pub);
 
 		lab.AddExit("north", outside);
 		lab.AddExit("east", office);
@@ -96,6 +111,9 @@ class Game
 				break;
 			case "quit":
 				wantToQuit = true;
+				break;
+			case "look":
+				Console.WriteLine(currentRoom.GetLongDescription());
 				break;
 		}
 
