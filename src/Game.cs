@@ -110,12 +110,16 @@ class Game
 			case "go":
 				GoRoom(command);
 				break;
-			case "quit":
-				wantToQuit = true;
-				break;
 			case "look":
 				Console.WriteLine(player.CurrentRoom.GetLongDescription());
 				break;
+			case "status":
+				Console.WriteLine($"HP: {player.Health}");
+				break;
+			case "quit":
+				wantToQuit = true;
+				break;
+			
 		}
 
 		return wantToQuit;
@@ -158,6 +162,7 @@ class Game
 		}
 
 		player.CurrentRoom = nextRoom;
+		player.Damage(5);
 		Console.WriteLine(player.CurrentRoom.GetLongDescription());
 	}
 }

@@ -1,28 +1,26 @@
 class Player{
     public Room CurrentRoom {get; set;}
-    private int health;
+    public int Health { get; set; }
 
     public Player(){
         CurrentRoom = null;
-        health = 100;
+        Health = 100;
     }
 
-    // public int Damage()
-    // {
-    //     if()
-    //     {
-            
-    //     }
-    // }
-    // public int Heal()
-    // {
-        
-    // }
-    // public int IsAlive()
-    // {
-    //     if(health <= 0)
-    //     {
-            
-    //     }
-    // }
+    public int Damage(int amount)
+    {
+        Health -= amount;
+        return Health;
+    }
+    //public int Heal()
+    //{
+
+    //}
+    //public int IsAlive()
+    //{
+    //    if (health <= 0)
+    //    {
+    //        Game.wantToQuit = true;
+    //    }
+    //}
 }
